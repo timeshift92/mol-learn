@@ -1,0 +1,93 @@
+$my_dashboard $mol_book2
+	editor_title <= detail_title \$mol
+	source_prefix \https://github.com/hyoo-ru/mam_mol/tree/master/
+	pages <= blocks /
+	plugins /
+		<= Theme $mol_theme_auto
+	Menu $my_dashboard_menu
+		hierarchy <= nav_hierarchy null
+		option!id <= nav_option!id null
+		filter?val <=> filter_string?val \
+	Detail!id $my_dashboard_detail
+		title <= detail_title
+		source_link <= source_link \
+		body /
+			<= Detail_list $mol_list
+				rows <= main_content /
+			- <= Chat $mol_chat
+				repository_name \nin-jin/mol_chat
+				title <= title
+				link <= chat_link \
+	Editor!id $mol_app_studio
+		title <= editor_title
+		class_name_base <= selected_class_name \
+		tools_main /
+			<= Close $mol_link
+				sub /
+					<= Close_icon $mol_icon_cross
+				arg <= close_arg *
+					edit null
+	Welcome $mol_scroll
+		sub /
+			<= Welcome_text $mol_text
+				text <= welcome_text \
+	Detail_empty_message $mol_status
+		sub /
+			<= detail_empty_prefix @ \No one demo with prefix "
+			<= selected \
+			<= detail_empty_postfix @ \"
+			
+$my_dashboard_menu $mol_page
+	title @ \$mol components
+	tools /
+		<= Sources $mol_link_source
+			uri <= sources_uri \https://github.com/hyoo-ru/mam_mol/tree/master/
+		<= Lights $mol_lights_toggle
+	sub /
+		<= Head
+		<= Filter $mol_search
+			query?val <=> filter?val \
+		<= Nav $my_dashboard_nav
+			hierarchy <= hierarchy null
+			record!id <= option!id null
+			needle <= filter?val \
+		
+$my_dashboard_detail $mol_page
+	tools /
+		<= Source_link $mol_link
+			uri <= source_link \
+			target \_blank
+			sub /
+				<= Source_button $mol_button_major
+					hint <= source_hint @ \Source code of this demo
+					sub /
+						<= Source_icon $mol_icon_code_braces
+		- <= Edit $mol_link
+			hint <= edit_hint @ \Edit this demo online
+			sub /
+				<= Edit_speck $mol_speck
+					value \β
+				<= Edit_icon $mol_icon_settings
+			arg *
+				edit \
+				path \
+		<= Close $mol_link 
+			hint <= close_hint @ \Close panel
+			sub /
+				<= Close_icon $mol_icon_cross
+			arg <= close_arg *
+				demo null
+
+$my_dashboard_nav $mol_grid
+	hierarchy_col \title
+	Head null
+	-
+	Option!id $mol_link
+		arg <= arg!id *
+		sub /
+			<= Expand!id $mol_check_expand
+				expanded?val <=> cell_expanded!id?val
+				level <= cell_level!id
+			<= Content!id $mol_view
+				sub /
+					<= cell_content!id

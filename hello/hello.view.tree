@@ -1,0 +1,6 @@
+$my_hello $mol_view
+	sub /
+		<= Ball $mol_image
+			event *
+				mousedown?event <=> down?event null
+			uri \https://js.cx/clipart/ball.svg

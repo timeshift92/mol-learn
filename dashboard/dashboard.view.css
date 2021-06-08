@@ -1,0 +1,123 @@
+[my_dashboard_menu] {
+	flex: 0 0 18rem;
+}
+
+[my_dashboard_menu_tools] {
+	padding: 0;
+}
+
+[my_dashboard_menu_nav] {
+	flex: auto;
+	display: flex;
+	flex-direction: column;
+	align-self: stretch;
+	padding: var(--mol_gap_block);
+}
+
+[my_dashboard_main],
+[my_dashboard_detail],
+[mol_app_empty_message] {
+	flex: 1000 0 60rem;
+}
+
+[my_dashboard_detail] {
+	background: var(--mol_theme_field);
+}
+
+[my_dashboard_menu_filter] {
+	align-self: stretch;
+	flex: 0 0 auto;
+}
+
+[my_dashboard_nav_table] {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+[my_dashboard_nav_row] {
+	display: flex;
+}
+
+[my_dashboard_nav_option] {
+	padding: 0 .5rem 0 0;
+	display: flex;
+	flex: 1;
+	align-items: center;
+	box-shadow: none;
+}
+
+[my_dashboard_nav_expand] {
+	align-self: stretch;
+	align-items: center;
+	padding-right: .25rem;
+}
+
+[my_dashboard_nav_content] {
+	flex-grow: 1;
+}
+
+[my_dashboard_menu_themes] {
+	flex: none;
+}
+
+[my_dashboard_list] {
+	display: flex;
+	flex-wrap: wrap;
+	padding: var(--mol_gap_block);
+	align-content: flex-start;
+	align-items: flex-start;
+}
+
+[my_dashboard_screen] {
+	max-height: 45%;
+}
+
+[my_dashboard_detail_body] {
+	display: flex;
+	align-items: stretch;
+	justify-content: flex-start;
+	flex-direction: column;
+}
+
+[my_dashboard_detail_list] {
+	flex: 1 0 auto;
+	display: flex;
+	flex-direction: column;
+	margin: var(--mol_gap_block);
+}
+
+[my_dashboard_detail_list] > [mol_demo_large] {
+	margin: var(--mol_gap_block);
+	height: calc( 100vh - 100px );
+	width: calc( 100% - 1rem );
+}
+
+[my_dashboard_page_close] {
+	color: inherit;
+	align-items: center;
+	padding: 1rem;
+}
+
+[my_dashboard_welcome] {
+	flex: 1 1 auto;
+}
+
+[my_dashboard_option_link] {
+	padding: 0;
+}
+
+[my_dashboard_sample_large] {
+	box-sizing: border-box;
+}
+
+[my_dashboard_detail_empty_message] {
+	margin: auto;
+}
+
+[my_dashboard_chat] {
+	flex: none;
+}
+
+[my_dashboard_detail_source_link] {
+	padding: 0;
+}

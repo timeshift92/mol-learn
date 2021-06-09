@@ -34,11 +34,12 @@ namespace $.$$ {
 		}
 
 		render() {
-			this.$.DragManager.onDragCancel = function (dragObject: any) {
+			const manager = this.$.DragManager.init();
+			manager.onDragCancel = function (dragObject: any) {
 				dragObject.avatar.rollback();
 			};
 
-			this.$.DragManager.onDragEnd = function (dragObject: any, dropElem: HTMLElement) {
+			manager.onDragEnd = function (dragObject: any, dropElem: HTMLElement) {
 				dragObject.elem.style.display = 'none';
 				const drp = document.querySelector('.droppable');
 				if (drp) {

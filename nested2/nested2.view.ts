@@ -22,6 +22,20 @@ namespace $.$$ {
 				{ id: "22", title: "menu child two for two", parent_id: "2" }
 			]
 		}
+
+		@$mol_mem_key
+		task_data(parent_id: string | null, next?: $my_nested_task2) {
+			if (next) {
+				const updList = this.list().flatMap(tsk => {
+					if (tsk.id == next.id) {
+						tsk = next
+					}
+					return tsk
+				});
+				this.list(updList)
+			}
+			return  this.list().find(tsk => tsk.parent_id == parent_id)
+		}
 		root_rows() {
 			return this.row_content(null)
 		}
@@ -98,7 +112,8 @@ namespace $.$$ {
 			const tasks = this.list().filter(p => p !== task)
 			task.parent_id = anchor.id;
 			// this.list(tasks)
-			
+			this.task_data(task.parent_id, task)
+
 			tasks.push(task)
 
 			this.list(tasks)

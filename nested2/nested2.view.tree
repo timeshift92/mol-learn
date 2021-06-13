@@ -1,17 +1,21 @@
-$my_nested $mol_demo_large
+$my_nested2 $mol_demo_large
 	task_count 100
 	sub /
-		<= Content $mol_list
-			rows <= drop_lists /
-	List_drop!id $mol_drop
+		<= Scroll $mol_scroll
+			sub /
+				<= Content $mol_list
+					dom_name \ul
+					rows <= root_rows /
+	DropZone!task $mol_drop
 		adopt?transfer <=> transfer_adopt?transfer null
-		receive?obj <=> receive!id?obj null
-		Sub <= Scroll!id $mol_scroll sub /
-			<= List!id $mol_list
-				rows <= task_rows!id /
-	Task_wrap!id $mol_view
-	Task_list!task $mol_list
-		rows <= child_tasks!task / 
+		receive?obj <=> receive!task?obj null
+		Sub <= List!task $mol_view
+			dom_name \li
+			sub /
+				<= row_item!task null
+				<= List_content!task $mol_list
+					dom_name \ul
+					rows <= row_content!task null
 	Task_row!task $mol_drag
 		transfer *
 			text/plain <= task_title!task \

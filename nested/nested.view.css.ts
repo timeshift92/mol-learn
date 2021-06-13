@@ -1,31 +1,37 @@
 namespace $.$$ {
 
-	const {rem,px} = $mol_style_unit
+	const { rem, px } = $mol_style_unit
 
-	$mol_style_define( $mol_drag_demo , {
-		
-		Task_drop:{
+	$mol_style_define($my_nested, {
+
+		Task_drop: {
 			'@': {
 				mol_drop_status: {
 					drag: {
-						boxShadow: `0 -1px 0 0px ${ $mol_theme.focus }`,
+						boxShadow: `0 -1px 0 0px ${$mol_theme.focus}`,
 					},
 				},
 			},
 		},
 
-		List: {
+		$mol_list: {
 			padding: $mol_gap.block,
+			minWidth: px(15),
+			minHeight: px(15),
+			border:{
+				style: "solid",
+				color:"red"
+			}
 		},
-		
+
 		List_drop: {
 			'@': {
 				mol_drop_status: {
 					drag: {
-						'>' : {
-							$mol_view : {
+						'>': {
+							$mol_view: {
 								':last-child': {
-									boxShadow: `0 1px 0 0px ${ $mol_theme.focus }`,
+									boxShadow: `0 1px 0 0px ${$mol_theme.focus}`,
 								},
 							},
 						},
@@ -33,7 +39,7 @@ namespace $.$$ {
 				},
 			},
 		},
-		
+
 		Trash: {
 			padding: $mol_gap.block,
 			display: 'block',
@@ -50,7 +56,16 @@ namespace $.$$ {
 				},
 			},
 		},
-		
+		Task_child_row: {
+			height: rem(1),
+			border: {
+				color: "red",
+				radius: $mol_gap.round,
+				style: "solid"
+
+			},
+		}
+
 	})
 
 }

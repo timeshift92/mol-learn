@@ -1,9 +1,6 @@
 $my_draggableLesson_two $mol_view
 	sub /
 		<= Draggable $mol_view
-			event *
-				mousedown?event <=> down?event null
-				mousemove?event <=> move?event null
 			sub <= draggable_items /
 		<= P \Браузер переносить сюда:
 		<= Droppable $mol_view

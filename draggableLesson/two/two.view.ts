@@ -41,13 +41,11 @@ namespace $.$$ {
 
 			manager.onDragEnd = function (dragObject: any, dropElem: HTMLElement) {
 				dragObject.elem.style.display = 'none';
-				const drp = document.querySelector('.droppable');
-				if (drp) {
-					drp.classList.add('computer--smile');
-					setTimeout(function () {
-						drp.classList.remove('computer--smile');
-					}, 200);
-				}
+
+				dropElem.classList.add('computer--smile');
+				setTimeout(function () {
+					dropElem.classList.remove('computer--smile');
+				}, 200);
 
 			};
 			return super.render()
